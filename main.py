@@ -1,8 +1,12 @@
+from teste import l
+
+
 def meniu():
     print("1.Citire lista")
     print("2.Afisare lista dupa eliminarea numere prime din lista")
     print("3.Evaluare daca media aritmetica a numerelor din lista este mai mare decat un nr k dat")
     print("4.Adaugare numar divizori dupa fiecare termen")
+    print("5.Afisare lista tuplu")
     print("6.Iesire")
 
 
@@ -16,6 +20,7 @@ def citireLista(l):
 
 
 def Test():
+    #TestPrelucareListaTuplu()
     TestPrelucrareLista()
     TestMedieAritmetica()
     TesteliminareNumerePrime()
@@ -82,6 +87,20 @@ def TestPrelucrareLista():
     assert PrelucrareLista([19, 5, 24, 12, 9]) == [19, 0, 5, 0, 24, 6, 12, 4, 9, 1]
     assert PrelucrareLista([1, 2, 4, 10]) == [1, 0, 2, 0, 4, 1, 10, 2]
 
+def TestPrelucareListaTuplu():
+    pass
+
+def PrelucareListaTuplu():
+    rezultat = []
+    indice = -1
+    for x in l:
+        count = l.count(x)
+        indice = indice + 1
+        rezultat.append(x)
+        rezultat.append(indice)
+        rezultat.append(count)
+    return rezultat
+
 
 def main():
     Test()
@@ -101,8 +120,10 @@ def main():
                 print("DA")
         elif optiune == '4':
             print(PrelucrareLista(l))
+        elif optiune == '5':
+            pass
         elif optiune == '6':
-            break
+            print(TestPrelucareListaTuplu(l))
         else:
             print("Optiune invalida,reincercati!")
 

@@ -1,17 +1,12 @@
-l = [19, 5, 24, 12, 9, 2]
-def PrelucrareLista(l):
-    '''
-    Adauga dupa fiecare numar, numarul divizorilor sai
-    :param l:lista de int-uri
-    :return:Lista
-    '''
+l = [25, 13, 26, 13]
+def TestPrelucareListaTuplu(l):
     rezultat = []
+    indice = -1
     for x in l:
-        nrd = 0
-        for i in range(2, x//2+1):
-            if x % i == 0:
-                nrd = nrd + 1
+        count = l.count(x)
+        indice = indice + 1
         rezultat.append(x)
-        rezultat.append(nrd)
+        rezultat.append(indice)
+        rezultat.append(count)
     return rezultat
-print(PrelucrareLista(l))
+print(TestPrelucareListaTuplu(l))
