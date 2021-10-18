@@ -1,21 +1,14 @@
-l = [1, 2, 3, 4, 5, 6]
-
-def eliminareNumerePrime(l):
+l = [1, 2, 3, 4]
+def MedieAritmetica(l):
     '''
-    Elimina numerele prime din lista
-    :param l: lista cu nr de tip int
-    :return: returneaza lista dupa eloiminarea nr prime
+    Calculeaza media aritmetica a numerelor din lista
+    :param l: lista de int-uri
+    :return: valoarea mediei aritmetice
     '''
-    rezultat = []
+    rezultat = 0
     for x in l:
-        ok = True
-        if x < 2:
-            ok = False
-        for i in range(2, x//2+1):
-            if x % i == 0:
-                ok = False
-        if ok == False:
-            rezultat.append(x)
+        rezultat = rezultat + x
+    rezultat = rezultat // len(l)
     return rezultat
-print(l)
-print(eliminareNumerePrime(l))
+
+print(MedieAritmetica(l))
