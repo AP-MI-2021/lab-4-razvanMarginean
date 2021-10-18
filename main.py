@@ -2,8 +2,9 @@ def meniu():
     print("1.Citire lista")
     print("2.Afisare lista dupa eliminarea numere prime din lista")
     print("3.Evaluare daca media aritmetica a numerelor din lista este mai mare decat un nr k dat")
-    
+    print("4.Adaugare numar divizori dupa fiecare termen")
     print("6.Iesire")
+
 
 def citireLista(l):
     l = []
@@ -13,9 +14,12 @@ def citireLista(l):
         l.append(int(x))
     return l
 
+
 def Test():
+    TestPrelucrareLista()
     TestMedieAritmetica()
     TesteliminareNumerePrime()
+
 
 def eliminareNumerePrime(l):
     '''
@@ -28,7 +32,7 @@ def eliminareNumerePrime(l):
         ok = True
         if x < 2:
             ok = False
-        for i in range(2, x//2+1):
+        for i in range(2, x // 2 + 1):
             if x % i == 0:
                 ok = False
         if ok == False:
@@ -38,6 +42,7 @@ def eliminareNumerePrime(l):
 
 def TesteliminareNumerePrime():
     assert eliminareNumerePrime([8, 19, 17, 25]) == [8, 25]
+
 
 def MedieAritmetica(l):
     '''
@@ -57,8 +62,28 @@ def TestMedieAritmetica():
     assert MedieAritmetica([10, -3, 25, -1, 3, 25, 18]) == 11
 
 
+def PrelucrareLista(l):
+    '''
+    Adauga dupa fiecare numar, numarul divizorilor sai
+    :param l:lista de int-uri
+    :return:Lista
+    '''
+    rezultat = []
+    for x in l:
+        nrd = 0
+        for i in range(2, x//2+1):
+            if x % i == 0:
+                nrd = nrd + 1
+        rezultat.append(x)
+        rezultat.append(nrd)
+    return rezultat
+
+def TestPrelucrareLista():
+    assert PrelucrareLista([19, 5, 24, 12, 9]) == [19, 0, 5, 0, 24, 6, 12, 4, 9, 1]
+    assert PrelucrareLista([1, 2, 4, 10]) == [1, 0, 2, 0, 4, 1, 10, 2]
+
+
 def main():
-    TesteliminareNumerePrime()
     Test()
     l = []
     while True:
@@ -74,6 +99,12 @@ def main():
                 print("NU")
             else:
                 print("DA")
+        elif optiune == '4':
+            print(PrelucrareLista(l))
         elif optiune == '6':
             break
+        else:
+            print("Optiune invalida,reincercati!")
+
+
 main()
